@@ -70,7 +70,7 @@ class LoanCalculator implements FeeCalculatorInterface
         $lesserValues = array_filter($fees, fn (array $fee) => $fee['amount'] <= $amount);
         $greaterValues = array_filter($fees, fn (array $fee) => $fee['amount'] >= $amount);
 
-        return array_unique([
+        return ([
             $lesserValues[array_key_last($lesserValues)],
             $greaterValues[array_key_first($greaterValues)],
         ]);
